@@ -1,0 +1,35 @@
+
+@media (max-width: 330px) {
+  .repeatedButton{
+    width: 90%;
+    margin: 5% 0 0 5%;
+  }
+
+}
+.repeatedButton a{
+  width: 200px;
+  height: 100px;
+  color: #ffffff;
+  background-color: #f57c00;
+  font-family:Open Sans Condensed;
+  text-decoration: none;
+  font-size: 1.8em;
+  border: 2px #ffffff solid;
+  margin: 10px 0 0 5px;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+ 
+
+.repeatedButton:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
+

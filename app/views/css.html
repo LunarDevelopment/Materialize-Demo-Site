@@ -1,0 +1,126 @@
+
+<div class="row">
+  <div class="col s5 pinned">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title" ng-show="Source.name">{{Source.name}}</span>
+        <span class="card-title" ng-show="!Source.name">Select a Button!</span>
+        <div hljs="" compile="true" source="Source.markup">
+
+        </div>
+        <div hljs="" compile="true" source="Source.class">
+
+        </div>
+      </div>
+      <div class="card-action">
+        <a clip-copy="Source.markup" clip-click-fallback="fallback(Source.markup)">Copy the Button! <i class="material-icons left">library_books</i></a>
+        <a class="right" clip-copy="Source.class" clip-click-fallback="fallback(Source.class)">Copy the CSS! <i class="material-icons right">library_books</i></a> 
+      </div>
+    </div>
+    
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+
+        <div class="row">
+          <div class="col s5">
+            <p>To animate without the need to hover...</p>
+        <div hljs="">
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+        </div>
+          </div>
+
+          <div class="col s5">
+        <p>becomes just the class name..</p>
+        <div hljs="">
+.hvr-grow {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+        </div>
+          </div>
+        </div>
+        <p>However! if the animation is not a looping animation ("Pulse" loops where "Grow" does not.) then you cannot do the above, else the animation will skip to the end of the animation, looking turd.</p>
+        
+        <p>You can wrap your text or image / button with the 'a' anchor supplied, or simply add the "class" to the element you wish to animate, both shown below:</p>
+        <div hljs="">
+// using the native "a" 
+<a class="hvr-bounce-in">
+  <img src="logo.jpg" />        
+</a>
+// using the class 
+<img src="logo.jpg" class="hvr-bounce-in"/>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+
+    
+    <div class="col s5">
+        
+    </div>
+    <div class="col s7 right">
+
+      <h5>Hover over a button to see the animation,</h5>
+      <h5>Click to see the code!</h5>
+      <div class="card hoverable" ng-repeat="button in buttons">
+        <div class="card-content">
+          <div class="repeatedButton effects center" ng-click="toggleSource(button);" >
+            <div ng-bind-html="trustedHtml(button.markup)"></div>
+          </div>
+          
+          <span class="card-title activator grey-text text-darken-4"> {{button.name}}<i class="material-icons right">settings_ethernet</i></span>
+
+          <p><a clip-copy="button.class" clip-click-fallback="fallback(button.class)">Copy the CSS! <i class="material-icons right">library_books</i></a>
+          </p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+
+          <p><a clip-copy="button.markup" clip-click-fallback="fallback(button.markup)">Copy the Button! <i class="material-icons right">library_books</i></a>
+          </p>
+          <div hljs="" source="button.markup">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!--
+  <blockquote>
+    <code>source</code> directive connects the highlight content with <code>hljs</code>.
+  </blockquote>
+  <hr>
+
+  <p>Click on the button will drop the page source into <code>$scope.subSource</code>, and triggers <code>hljs</code> directive to display the highlighted <code>$scope.subSource</code>.</p>
+
+ buttons for put/clear $scope.subSource content 
+  <button class="btn btn-primary show-source" ng-click="toggleSource('subSource')" ng-show="!subSource">put $scope.subSource</button>
+  <button class="btn btn-primary show-source" ng-click="toggleSource('subSource')" ng-show="subSource">clear $scope.subSource</button>
+  <div ng-show="subSource">
+    <br>
+    hljs connected with $scope.subSource 
+    <div hljs source="subSource"></div>
+  </div>
+
+  <hr>
+  <p>Demostrates the <code>source</code> expression evaluation.</p>
+ hljs connected with independent string 
+  <div hljs source="'<html><head><body></body></head></html>'"></div>
+
+  -->
